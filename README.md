@@ -1,1 +1,1 @@
-# hse_padii_2023_python_project_label_check
+# hse_padii_2023_python_project_cocktail_maker
