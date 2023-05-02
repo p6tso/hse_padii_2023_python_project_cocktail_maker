@@ -107,7 +107,7 @@ for i in range(len(data)):
     for j in range(len(data[i]['amount'])):
         sum_amount += float(data[i]['amount'][j])
     for j in range(len(data[i]['amount'])):
-        data[i]['amount'][j] = str(float(data[i]['amount'][j]) / float(sum_amount))
+        data[i]['amount'][j] = float(data[i]['amount'][j]) / float(sum_amount)
 
 # print('\n\n')
 # print('Изначальный обработаный датасет, с шт и мл')
