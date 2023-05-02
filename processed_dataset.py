@@ -102,7 +102,7 @@ for i in range(len(data)):
         ings.add(data[i]['ingredients'][j])
     for j in range(len(data[i]['tags'])):
         tags.add(data[i]['tags'][j])
-    # тут пропорции делаем из мл, можно и мл оставить
+    # тут пропорции делаем из мл, можно и мл оставить, просто удалить следующие 5 строк
     sum_amount = 0
     for j in range(len(data[i]['amount'])):
         sum_amount += float(data[i]['amount'][j])
