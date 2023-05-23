@@ -2,7 +2,8 @@ from aiogram import Bot, Dispatcher, executor, types
 from numpy.random import randint
 import keyboards
 from aiogram.types import ReplyKeyboardRemove
-from nekot import TOKEN
+
+TOKEN = "5940727481:AAFBmQm2Dzu_8S7PXbUc6BbqSzhgZA_54AQ"
 
 START_MSG = "привет, коллега, напиши что у тебя есть, что ты хочешь, формат можешь подглядеть"
 FORMAT_MSG = "Ингредиенты:\nвино с водой\nсок\nсидр\nКачества:\nсладко\nне крепко\nкисло\n\nкоктейль не понравился? удали рецепт сообщением \"*номер*!\""

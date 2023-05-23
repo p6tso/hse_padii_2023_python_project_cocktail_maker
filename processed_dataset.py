@@ -111,8 +111,8 @@ for i in range(len(data)):
 
 # print('\n\n')
 # print('Изначальный обработаный датасет, с шт и мл')
-# for i in range(len(data)):
-#     print(data[i])
+for i in range(len(data)):
+    print(data[i])
 # print(len(data))
 
 data1 = []
@@ -146,13 +146,14 @@ for i in range(len(data)):
 
 data_final = [[]]
 
-print(len(tags))
-print(tags)
+# print(len(tags))
+# print(tags)
 data_final[0].append('name')
 for i in ings:
     data_final[0].append(i)
 for i in tags:
     data_final[0].append(i)
+data_final[0].append('recipe')
 
 for i in range(len(data1)):
     data_final.append([0 for x in range(len(data_final[0]))])
@@ -169,10 +170,10 @@ for i in range(len(data1)):
                 x = k
                 break
         data_final[i + 1][x] = 1
-
+    data_final[i + 1][-1] = data1[i]['recipe']
 #     теперь для каждого коктейля, чего сколько + пропорции вместо мл
 
-print(data_final)
+# print(data_final)
 with open('data.csv', 'w', newline='') as f:
     w = csv.writer(f)
     w.writerows(data_final)
