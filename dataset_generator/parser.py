@@ -1,9 +1,9 @@
 import requests
 from bs4 import BeautifulSoup as bs
 import json
-import pandas as pd
-import torch
+
 if __name__ == '__main__':
+    save_path = '../datasets/dataset_final.json'
     base_link = 'https://ru.inshaker.com'
     page_link = 'https://ru.inshaker.com/cocktails?random_page='
     data = {'coctails': []}
@@ -16,7 +16,10 @@ if __name__ == '__main__':
         if c % 10 == 0:
             print(c)
         c += 1
-        t = requests.get(base_link + i['href'])
+        try:
+            t = requests.get(base_link + i['href'])
+        except requests.exceptions.ConnectionError:
+            continue
         if r.status_code != 200:
             continue
         temp = bs(t.text, "html.parser")
@@ -31,8 +34,8 @@ if __name__ == '__main__':
         l3 = list(map(lambda x: x.text.lower()[:-1], tm3))
         l4 = list(map(lambda x: x.text, tm4))
         l5 = list(map(lambda x: x.text.lower(), tm5))
-        data['coctails'].append({'name' : i.text.lower(), 'recipe': l1, 'tags': l2, 'ingredients': l3,
-                                 'amount' : l4[:len(l3)], 'units': l5()})
+        data['coctails'].append({'name': i.text.lower(), 'recipe': l1, 'tags': l2, 'ingredients': l3,
+                                 'amount': l4[:len(l3)], 'units': l5[:len(l3)]})
     json_string = json.dumps(data)
-    with open('dataset3.json', 'w') as outfile:
+    with open(save_path, 'w') as outfile:
         outfile.write(json_string)
