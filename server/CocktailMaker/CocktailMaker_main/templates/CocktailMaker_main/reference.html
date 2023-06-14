@@ -1,0 +1,29 @@
+{% extends 'CocktailMaker_main/sample.html' %}
+
+{% block title %}
+Справка
+{% endblock %}
+
+{% block active_button %}
+<ul style="margin-right: 150px; min-height: 65px;" class="nav nav-pills">
+    <li class="nav-link "><a href="{% url 'main-page' %}" class="nav-link text-white " aria-current="page"><h5>Новый
+        коктейль</h5></a></li>
+    <li class="nav-link "><a href="{% url 'my-recipes' %}" class="nav-link text-white "><h5> Мои коктейли</h5></a></li>
+    <li class="nav-link "><a href="{% url 'dictionary' %}" class="nav-link text-white"><h5>Словарик</h5></a></li>
+    <li class="nav-link "><a href="{% url 'reference' %}" style="background-color: #6f0fff;" class="nav-link active">
+        <h5>Справка</h5></a></li>
+    <li class="nav-link "><a href="{% url 'about-us' %}" class="nav-link text-white"><h5>О нас</h5></a></li>
+</ul>
+{% endblock %}
+
+{% block info %}
+<h1 style="margin: 50px;" class="center">Как пользоваться сайтом</h1>
+<!--TODO ссылка на словарик, ссылка на главную страницу-->
+<h5 style="text-indent: 2em;margin-left: 115px;margin-right: 115px; margin-top: 90px;"> Для того, чтобы создать коктейль
+    сайту понадобиться набор ингредиентов, а также пожелания. На сайте НЕЛЬЗЯ
+    добавлять
+    абсолютно любые ингредиенты или пожелания, пользоваться можно лишь тем, что есть в словарике (если бот не будет
+    знать какие-то ингредиенты/пожелания, то он выдаст ошибку). После создания, рецепт можно либо сохранить (и дать при
+    этом ему какое-то название), либо удалить.</h5>
+<h4 style="margin: 100px;" class="center"><strong>Чрезмерное употребление алкоголя вредит Вашему здоровью!</strong></h4>
+{% endblock %}

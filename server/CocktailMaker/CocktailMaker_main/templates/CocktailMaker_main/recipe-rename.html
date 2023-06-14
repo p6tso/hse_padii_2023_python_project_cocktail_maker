@@ -1,0 +1,31 @@
+{% extends 'CocktailMaker_main/sample1.html' %}
+
+{% block title %}
+{{ recipe.title }}
+{% endblock %}
+
+{% block active_button %}
+<ul style="margin-right: 150px; min-height: 65px;" class="nav nav-pills">
+    <li class="nav-link "><a href="{% url 'main-page' %}" class="nav-link text-white " aria-current="page"><h5>Новый
+        коктейль</h5></a></li>
+    <li class="nav-link "><a href="{% url 'my-recipes' %}" class="nav-link text-white "><h5> Мои коктейли</h5></a></li>
+    <li class="nav-link "><a href="{% url 'dictionary' %}" class="nav-link text-white"><h5>Словарик</h5></a></li>
+    <li class="nav-link "><a href="{% url 'reference' %}" class="nav-link text-white"><h5>Справка</h5></a></li>
+    <li class="nav-link "><a href="{% url 'about-us' %}" class="nav-link text-white"><h5>О нас</h5></a></li>
+</ul>
+{% endblock %}
+
+{% block info %}
+<div class="center container-xl bg-white box">
+    <form style="padding-top: 50px;" class="center" method="post">
+        {% csrf_token %}
+        {{ form.title }}
+        <button type="submit" class=" btn btn-lg btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                style="min-height: 120px; min-width: 300px; margin: 80px;">
+            Переименовать
+        </button>
+        <span>{{ error }}</span>
+    </form>
+</div>
+
+{% endblock %}

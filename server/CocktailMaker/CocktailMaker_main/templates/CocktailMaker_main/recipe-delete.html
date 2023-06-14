@@ -1,0 +1,27 @@
+{% extends 'CocktailMaker_main/sample1.html' %}
+
+{% block title %}
+CocktailMaker
+{% endblock %}
+
+{% block active_button %}
+<ul style="margin-right: 150px; min-height: 65px;" class="nav nav-pills">
+    <li class="nav-link"><a href="{% url 'main-page' %}" class="nav-link text-white "><h5>Новый коктейль</h5></a></li>
+    <li class="nav-link "><a href="{% url 'my-recipes' %}" class="nav-link text-white "><h5> Мои коктейли</h5></a></li>
+    <li class="nav-link "><a href="{% url 'dictionary' %}" class="nav-link text-white"><h5>Словарик</h5></a></li>
+    <li class="nav-link "><a href="{% url 'reference' %}" class="nav-link text-white"><h5>Справка</h5></a></li>
+    <li class="nav-link "><a href="{% url 'about-us' %}" class="nav-link text-white"><h5>О нас</h5></a></li>
+</ul>
+{% endblock %}
+
+{% block info %}
+    <div style="border-radius: 20px; margin-top: 50px;margin-bottom: 80px;"
+         class="container-xl bg-white box">
+        <form method="post" class="center">
+            {% csrf_token %}
+            <button type="submit" class=" btn btn-danger" style="min-height: 120px; min-width: 300px; margin: 200px;">
+                <a style="font-size: xxx-large">Удалить</a>
+            </button>
+        </form>
+    </div>
+{% endblock %}

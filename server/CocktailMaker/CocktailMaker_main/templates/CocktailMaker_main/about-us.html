@@ -1,0 +1,24 @@
+{% extends 'CocktailMaker_main/sample.html' %}
+
+{% block title %}
+Об авторах
+{% endblock %}
+
+{% block active_button %}
+<ul style="margin-right: 150px; min-height: 65px;" class="nav nav-pills">
+    <li class="nav-link "><a href="{% url 'main-page' %}" class="nav-link text-white " aria-current="page"><h5>Новый
+        коктейль</h5></a></li>
+    <li class="nav-link "><a href="{% url 'my-recipes' %}" class="nav-link text-white "><h5> Мои коктейли</h5></a></li>
+    <li class="nav-link "><a href="{% url 'dictionary' %}" class="nav-link text-white"><h5>Словарик</h5></a></li>
+    <li class="nav-link "><a href="{% url 'reference' %}" class="nav-link text-white"><h5>Справка</h5></a></li>
+    <li class="nav-link "><a href="{% url 'about-us' %}" style="background-color: #6f0fff" class="nav-link active"><h5>О
+        нас</h5></a></li>
+</ul>
+{% endblock %}
+
+{% block info %}
+<!-- TODO кринж текстик об авторах-->
+<h1 class="center">Кто автор?</h1>
+<h4 class="center" style="margin-left: 115px;margin-right: 115px; margin-top: 130px;">Над проектом работали студенты
+    первого курса ВШЭ СПб ПАДИИ<br> Хамматов Никита и Москвитин Владислав</h4>
+{% endblock %}
