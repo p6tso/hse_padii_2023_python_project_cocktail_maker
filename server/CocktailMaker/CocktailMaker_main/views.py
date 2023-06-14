@@ -1,13 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Cocktail_recipe
 from .forms import Cocktail_recipe_form, Cocktail_recipe_form1
-from django.views.generic import UpdateView, DeleteView, DetailView
-
-
-class RecipeDeleteView(DeleteView):
-    model = Cocktail_recipe
-    success_url = '/my-recipes'
-    template_name = 'CocktailMaker_main/recipe-delete.html'
+from django.views.generic import UpdateView, DetailView
+from django.urls import reverse
 
 
 class RecipeUpdateView(UpdateView):
@@ -37,6 +32,12 @@ def main_page(request):
         'error': error
     }
     return render(request, 'CocktailMaker_main/main-page.html', context)
+
+
+def recipe_delete(request, pk):
+    get_recipe = Cocktail_recipe.objects.get(pk=pk)
+    get_recipe.delete()
+    return redirect(reverse('my-recipes'))
 
 
 def my_recipes(request):

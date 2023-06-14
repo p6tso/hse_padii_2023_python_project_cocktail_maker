@@ -9,5 +9,5 @@ urlpatterns = [
     path("about-us", views.about_us, name='about-us'),
     path('<int:pk>', views.RecipeDetailView.as_view(), name="recipe"),
     path('<int:pk>/update', views.RecipeUpdateView.as_view(), name="recipe-rename"),
-    path('<int:pk>/delete', views.RecipeDeleteView.as_view(), name="recipe-delete"),
+    path('recipe-delete/<int:pk>', views.recipe_delete, name="recipe-delete"),
 ]
