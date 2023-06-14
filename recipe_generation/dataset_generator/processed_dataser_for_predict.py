@@ -1,7 +1,7 @@
 import json
 import re
 import csv
-from processed_dataset import processed
+from processed_dataset_base import processed
 
 
 def read(filename):
@@ -9,7 +9,7 @@ def read(filename):
         return json.load(file)
 
 
-file_name = '../datasets/dataset_final.json'
+file_name = '../datasets/dataset_inshaker.json'
 save_path = '../datasets/dataset_for_predict.csv'
 
 r = read(file_name)
