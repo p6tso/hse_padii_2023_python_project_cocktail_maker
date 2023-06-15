@@ -9,13 +9,20 @@
     <li class="nav-link "><a href="{% url 'main-page' %}" class="nav-link text-white " aria-current="page"><h5>Новый
         коктейль</h5></a></li>
     <li class="nav-link "><a href="{% url 'my-recipes' %}" class="nav-link text-white "><h5> Мои коктейли</h5></a></li>
-    <li class="nav-link "><a href="{% url 'dictionary' %}" style="background-color: #6f0fff" class="nav-link active"><h5>Словарик</h5></a></li>
+    <li class="nav-link "><a href="{% url 'dictionary' %}" style="background-color: #6f0fff" class="nav-link active">
+        <h5>Словарик</h5></a></li>
     <li class="nav-link "><a href="{% url 'reference' %}" class="nav-link text-white"><h5>Справка</h5></a></li>
     <li class="nav-link "><a href="{% url 'about-us' %}" class="nav-link text-white"><h5>О нас</h5></a></li>
 </ul>
 {% endblock %}
 
 {% block info %}
-<!-- TODO все возможные ингредиенты и все пожелания-->
-<p1>Тут типа всё, что можно использовать)</p1>
+<h1 style="margin: 20px;">Ингредиенты</h1>
+{% for ing in ings %}
+<a style="margin: 5px;background-color: #7B68EE" class="btn btn-secondary">{{ ing }}</a>
+{% endfor %}
+<h1 style="margin: 20px;">Пожелания</h1>
+{% for tag in tags %}
+<a style="margin: 5px;background-color: #7B68EE" class="btn btn-secondary">{{ tag }}</a>
+{% endfor %}
 {% endblock %}

@@ -3,6 +3,7 @@ from .models import Cocktail_recipe
 from .forms import Cocktail_recipe_form, Cocktail_recipe_form1
 from django.views.generic import UpdateView, DetailView
 from django.urls import reverse
+from .dictionary_all_ings_and_tags import all_ings, all_tags
 
 
 class RecipeUpdateView(UpdateView):
@@ -46,7 +47,7 @@ def my_recipes(request):
 
 
 def dictionary(request):
-    return render(request, 'CocktailMaker_main/dictionary.html')
+    return render(request, 'CocktailMaker_main/dictionary.html', {'ings': all_ings, 'tags': all_tags})
 
 
 def reference(request):

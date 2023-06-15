@@ -11,9 +11,11 @@ class Cocktail_recipe_form(ModelForm):
             'placeholder': 'Введи название'
         }), "string_ings": Textarea(attrs={
             'class': 'form-control',
+            'style': 'max-height: 130px;',
             'placeholder': 'Введи ингредиенты'
         }), "string_tags": Textarea(attrs={
             'class': 'form-control',
+            'style': 'max-height: 130px;',
             'placeholder': 'Введи пожелания'
         })}
 
