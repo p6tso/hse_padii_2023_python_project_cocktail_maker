@@ -4,14 +4,18 @@ from .forms import Cocktail_recipe_form, Cocktail_recipe_form1
 from django.views.generic import UpdateView, DetailView
 from django.urls import reverse
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from .final_models import reg_model
+import torch
+
 model_path = '/home/outcast/PycharmProjects/project/hse_padii_2023_python_project_cocktail_maker/server/CocktailMaker/CocktailMaker_main/model3'
 tokenizer_path = '/home/outcast/PycharmProjects/project/hse_padii_2023_python_project_cocktail_maker/server/CocktailMaker/CocktailMaker_main/tokenizer'
 tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
 bart_model = AutoModelForSeq2SeqLM.from_pretrained(model_path).to("cuda:0")
-
+path = 'model_vlad.pt'
+prop_model = reg_model.MainModel()
+prop_model.load_state_dict(torch.load(path))
 def get_predict(recipe, tags):
     data = 'ингредиенты: ' + recipe.lower() + ' пожелания: ' + tags.lower()
-    print(data)
     inputs = tokenizer(data, padding="max_length", truncation=True, max_length=50, return_tensors="pt")
     input_ids = inputs.input_ids.to("cuda:0")
     attention_mask = inputs.attention_mask.to("cuda:0")
@@ -37,7 +41,7 @@ def main_page(request):
         form = Cocktail_recipe_form(request.POST)
         if form.is_valid():
             print(form['title'].value())
-            pole = Cocktail_recipe.objects.create(title = str(form['title'].value()),
+            Cocktail_recipe.objects.create(title = str(form['title'].value()),
                                                   string_tags = str(form['string_tags'].value()),
                                                   string_ings= str(form['string_ings'].value()),
                                                   recipe=get_predict(str(form['string_ings'].value()), str(form['string_tags'].value())))

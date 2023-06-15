@@ -44,6 +44,3 @@ class MainModel(nn.Module):
         x = self.cls(x)
         return nn.Sigmoid()(x)
 
-path = 'model_vlad.pt'
-prop_model = MainModel()
-prop_model.load_state_dict(torch.load(path))
