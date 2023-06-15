@@ -18,6 +18,7 @@ class Cocktail_recipe_form(ModelForm):
         })}
 
 
+
 class Cocktail_recipe_form1(ModelForm):
     class Meta:
         model = Cocktail_recipe
