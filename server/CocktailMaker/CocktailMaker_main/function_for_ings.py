@@ -22,4 +22,5 @@ def make_hash_ings(string_ings):
     return hash_ings
 
 
+
 # print(make_hash_ings('авокадо абсент абрикосовый джем'))
