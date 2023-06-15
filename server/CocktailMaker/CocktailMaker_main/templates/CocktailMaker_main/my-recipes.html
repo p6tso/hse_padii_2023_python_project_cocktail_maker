@@ -36,7 +36,7 @@
            data-bs-trigger="hover"
            data-bs-html="true"
            data-bs-content='<div class="media"><div class="media-body"><p><strong>{{ recipe.string_ings }}</strong></p><br><p>{{ recipe.recipe }}</p></div></div>'>рецепт</a>
-        <a href="{% url 'recipe' recipe.id %}" style="background-color: #7B68EE" class="btn btn-secondary">подробнее</a>
+        <a href="{% url 'recipe' recipe.id %}" class="btn btn-secondary">подробнее</a>
     </div>
     {% endfor %}
 </div>

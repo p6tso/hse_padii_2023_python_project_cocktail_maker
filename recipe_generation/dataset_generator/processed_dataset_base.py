@@ -114,6 +114,4 @@ def processed(data):
             data1.append(data[i])
         else:
             flag = 0
-    print(ings)
-    print(tags)
     return data1, ings, tags
