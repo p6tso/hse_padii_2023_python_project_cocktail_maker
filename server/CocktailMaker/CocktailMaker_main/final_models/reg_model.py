@@ -11,19 +11,6 @@ from sklearn.metrics import *
 from torch.optim.lr_scheduler import CosineAnnealingLR
 import pickle
 
-class MainDataset(Dataset):
-    def __init__(self, X, y=None):
-        self.X = X
-        self.y = y
-
-    def __len__(self):
-        return len(self.X)
-
-    def __getitem__(self, item):
-        x = torch.tensor(self.X.iloc[item], dtype=torch.float32)
-        y = torch.tensor(self.y.iloc[item], dtype=torch.float32)
-        return x, y
-
 class MainModel(nn.Module):
     def __init__(self, input_size, output_size, hidden_size=128):
         super().__init__()
@@ -43,4 +30,3 @@ class MainModel(nn.Module):
     def forward(self, x):
         x = self.cls(x)
         return nn.Sigmoid()(x)
-

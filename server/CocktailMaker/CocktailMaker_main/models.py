@@ -6,7 +6,6 @@ class Cocktail_recipe(models.Model):
     recipe = models.TextField('Рецепт')
     string_ings = models.TextField('Ингредиенты')
     string_tags = models.TextField('Пожелания')
-
     def __str__(self):
         return self.title
 

@@ -1,11 +1,11 @@
-from dictionary_all_ings_and_tags import all_ings
+from .dictionary_all_ings_and_tags import all_ings_tags
 
-ings_in_dataset = all_ings
+ings_in_dataset = all_ings_tags
 
 def make_hash_ings(string_ings):
     dict_ings = dict()
     for ing in ings_in_dataset:
-        dict_ings[ing] = 0
+        dict_ings[ing] = 0.0
     words = str(string_ings).split()
     ing_now = ''
     for word in words:
@@ -14,7 +14,7 @@ def make_hash_ings(string_ings):
         else:
             ing_now = ing_now + ' ' + word
         if ing_now in dict_ings:
-            dict_ings[ing_now] = 1
+            dict_ings[ing_now] = 1.0
             ing_now =''
     hash_ings = []
     for value in dict_ings.values():
