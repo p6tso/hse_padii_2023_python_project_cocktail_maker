@@ -573,6 +573,6 @@ all_tags = ['овощные',
  'горькие',
  'классика']
 all_ings_tags = all_ings.copy()
-all_ings_tags.extend(all_tags)
-sorted_all_ings = all_ings.sort()
-sorted_all_tags = all_tags.sort()
+all_ings_tags.extend(all_tags.copy())
+all_ings.sort()
+all_tags.sort()
