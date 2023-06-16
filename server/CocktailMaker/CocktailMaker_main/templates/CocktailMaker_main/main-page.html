@@ -19,13 +19,13 @@ CocktailMaker
 {% block info %}
 <h1 class="center" style="margin: 50px;">Главная</h1>
 <form class="center" style="margin-left: 400px; max-width: 600px;" method="post">
-<form method="post">
     {% csrf_token %}
-    {{ form.title }}
-    {{ form.string_ings }}
-    {{ form.string_tags }}
-    <button type="submit" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Добавь
+    {{ form.title }}<br>
+    {{ form.string_ings }}<br>
+    {{ form.string_tags }}<br>
+    <button style="margin-bottom: 35px; min-height: 45px;" type="submit" class="btn btn-success" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">
+        Добавить коктейль
     </button>
     <span>{{ error }}</span>
 </form>
